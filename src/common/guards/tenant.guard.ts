@@ -16,7 +16,7 @@ import { TenantContext } from '../../tenant/tenant-context';
 export class TenantGuard implements CanActivate {
   private readonly logger = new Logger(TenantGuard.name);
 
-  canActivate(context: ExecutionContext): boolean {
+  canActivate(_context: ExecutionContext): boolean {
     const tenant = TenantContext.get();
 
     if (!tenant) {

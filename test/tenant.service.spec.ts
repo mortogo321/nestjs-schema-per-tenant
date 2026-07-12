@@ -47,7 +47,7 @@ describe('TenantService', () => {
 
     service = module.get<TenantService>(TenantService);
 
-    jest.clearAllMocks();
+    jest.resetAllMocks();
     mockDataSource.createQueryRunner.mockReturnValue(mockQueryRunner);
   });
 
