@@ -102,8 +102,8 @@ This starts PostgreSQL 17 and the NestJS application. The seed script creates a 
 docker compose up -d postgres
 
 # Install dependencies and start dev server
-npm install
-npm run start:dev
+bun install
+bun run start:dev
 ```
 
 ## API Testing with curl

@@ -1,26 +1,31 @@
 # Stage 1: Build
-FROM node:20-alpine AS builder
+FROM oven/bun:1-alpine AS bun
+FROM node:22-alpine AS builder
+
+COPY --from=bun /usr/local/bin/bun /usr/local/bin/bunx /usr/local/bin/
 
 WORKDIR /app
 
-COPY package*.json ./
-RUN npm ci
+COPY package.json bun.lock ./
+RUN bun install --frozen-lockfile
 
 COPY tsconfig.json nest-cli.json ./
 COPY src ./src
 
-RUN npx nest build
+RUN bunx nest build
 
 # Stage 2: Production
-FROM node:20-alpine
+FROM node:22-alpine
 
 WORKDIR /app
 
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 
+COPY package.json bun.lock ./
+COPY --from=bun /usr/local/bin/bun /usr/local/bin/bunx /usr/local/bin/
+RUN bun install --frozen-lockfile --production
+
 COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/package.json ./
 
 RUN chown -R appuser:appgroup /app
 
