@@ -93,7 +93,7 @@ A proof-of-concept demonstrating PostgreSQL **schema-per-tenant** isolation with
 docker compose up -d
 ```
 
-This starts PostgreSQL 17 and the NestJS application. The seed script creates a sample tenant "Acme Corp" with three products.
+This starts PostgreSQL 18 and the NestJS application. The seed script creates a sample tenant "Acme Corp" with three products.
 
 ### Run Locally (development)
 

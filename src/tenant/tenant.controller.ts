@@ -9,10 +9,13 @@ import {
   HttpCode,
   HttpStatus,
 } from '@nestjs/common';
+import { IsNotEmpty, IsString } from 'class-validator';
 import { TenantService } from './tenant.service';
 import { Tenant } from './tenant.entity';
 
 class CreateTenantDto {
+  @IsString()
+  @IsNotEmpty()
   name!: string;
 }
 
