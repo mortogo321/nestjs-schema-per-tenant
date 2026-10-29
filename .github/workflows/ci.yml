@@ -53,3 +53,6 @@ jobs:
 
       - name: Test
         run: bun run test -- --coverage --passWithNoTests
+
+      - name: E2E Test
+        run: bun run test:e2e
