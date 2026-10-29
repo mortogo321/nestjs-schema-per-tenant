@@ -85,7 +85,7 @@ A proof-of-concept demonstrating PostgreSQL **schema-per-tenant** isolation with
 ### Prerequisites
 
 - Docker and Docker Compose
-- Node.js 20+ (for local development)
+- Node.js 26+ (for local development)
 
 ### Run with Docker Compose
 
