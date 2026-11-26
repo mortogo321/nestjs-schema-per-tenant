@@ -1,5 +1,5 @@
 # Stage 1: Build
-FROM oven/bun:1.4.4-alpine AS bun
+FROM oven/bun:1.4.5-alpine AS bun
 FROM node:26-alpine AS builder
 
 COPY --from=bun /usr/local/bin/bun /usr/local/bin/bunx /usr/local/bin/
